@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import AnecdoteForm from './components/AnecdoteForm'
+import AnecdoteList from './components/AnecdoteList'
 import { doVote } from './reducers/anecdoteReducer'
 
 const App = () => {
@@ -8,20 +9,8 @@ const App = () => {
 
   return (
     <div>
-      <h2>Anecdotes</h2>
-      {anecdotes.map(anecdote =>
-        <div key={anecdote.id}>
-          <div>
-            {anecdote.content}
-          </div>
-          <div>
-            has {anecdote.votes}
-            <button onClick={() => dispatch(doVote(anecdote.id))}>vote</button>
-          </div>
-        </div>
-      )}
-      <h2>create new</h2>
-      <AnecdoteForm></AnecdoteForm>
+      <AnecdoteList/>
+      <AnecdoteForm/>
     </div>
   )
 }
