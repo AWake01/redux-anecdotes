@@ -23,8 +23,6 @@ const reducer = (state = initialState, action) => {
   console.log('state now: ', state)
   console.log('action', action)
 
-  // return state
-
   switch(action.type) {
     case 'VOTE': {
       const id = action.payload
