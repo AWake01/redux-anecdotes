@@ -3,10 +3,6 @@ import { doVote } from '../reducers/anecdoteReducer'
 const Anecdote = ({ anecdote, handleClick }) => {
     const dispatch = useDispatch()
 
-    const vote = (id) => {
-        dispatch(doVote(id))
-    }
-
     return (
         <div>
             <div>
@@ -22,7 +18,11 @@ const Anecdote = ({ anecdote, handleClick }) => {
 
 const AnecdoteList = () => {
     const dispatch = useDispatch()
-    const anecdotes = useSelector(state => state)
+    const anecdotes = useSelector(({ anecdotes, filter }) => {
+        if(filter === ''){
+            return anecdotes 
+        }
+    })
 
     return( 
         <div>
